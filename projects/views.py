@@ -16,22 +16,21 @@ class ProfileViewSet(viewsets.ModelViewSet):
     serializer_class = ProfileSerializer
 
     def get_permissions(self):
-        if self.request.method == "GET":
+        if self.request.method == 'GET':
             return [AllowAny()]
         return [IsAuthenticated()]
 
-    def retrive(self, request, *args, **kwargs):
-        if self.request.method == "GET":
-            profile_id = self.kwargs["pk"]
-            profile = Profile.objects.get(id=profile_id)
+    def retrieve(self, request, *args, **kwargs):
+        if request.method == 'GET':
+            profile_id = kwargs.get('pk')
+            profile = Profile.objects.get(pk=profile_id)
+            projects = profile.projects.all()
             context = {
                 "profile": profile,
-                "projects": profile.project_set.all(),
-                "certificates": profile.certificate_set.all(),
+                "projects": projects,
+                "certificates": profile.certificates.all(),
             }
-
-            return render(request, "profile_detail.html", context)
-
+            return render(request, 'profile_detail.html', context)
         return super().retrieve(request, *args, **kwargs)
 
 
