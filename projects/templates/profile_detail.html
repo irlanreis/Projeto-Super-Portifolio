@@ -1,21 +1,42 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Detalhes do Perfil
+  Profile
 {% endblock %}
 
-{% block content %}
-<h1>Nome: {{ profile.name }}</h1>
-<h2>Bio: {{ profile.bio }}</h2>
-<a href="{{ profile.linkedin }}">Linkedin</a>
-<a href="{{ profile.github }}">Github</a>
-{% for project in projects %}
-<h2>Nome: {{ project.name }}</h2>
-<p>Skill: {{ project.key_skill }}</p>
-{% endfor %}
-<h2>Certificados</h2>
-{% for certificate in certificates %}
-<h2>Nome: {{ certificate.name }}</h2>
-<p>Instituição: {{ certificate.cretifying_institution }}</p>
-{% endfor %}
+{% block header %}
+  <h1>{{ profile.name }}</h1>
+  <div>
+    <h2>Contact Information</h2>
+    <p><a href="{{ profile.github }}">GitHub</a></p>
+    <p><a href="{{ profile.linkedin }}">LinkedIn</a></p>
+    <p>{{ profile.bio }}</p>
+  </div>
+{% endblock %}
+
+{% block main %}
+    <h2>Projects</h2>
+    <ul>
+      {% for project in projects %}
+        <li>
+          <strong>{{ project.name }}</strong> - {{ project.description }}
+          <a href="{{ project.github_url }}">GitHub</a>
+          <span>Keywords: {{ project.keyword }}</span>
+          <span>Main Skill: {{ project.key_skill }}</span>
+        </li>
+      {% empty %}
+        <li>No projects listed.</li>
+      {% endfor %}
+    </ul>
+
+    <div>
+      <h1>Certificates</h1>
+        {% for certificate in certificates %}
+        <a href="{{ cetificate.url }}">{{ certificate.name }}</a>
+        <p>{{ certificate.certifying_institution }}</p>
+        {% empty %}
+        <li>No certificates listed.</li>
+        {% endfor %}
+    </div>
+
 {% endblock %}

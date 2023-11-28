@@ -30,7 +30,7 @@ class CertifyingInstitutionSerializer(serializers.ModelSerializer):
     certificates = NestedCertificateSerializer(many=True)
 
     class Meta:
-        model = Certificate
+        model = CertifyingInstitution
         fields = ["id", "name", "url", "certificates"]
 
     def create(self, validated_data):
