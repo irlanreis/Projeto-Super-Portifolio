@@ -1,4 +1,4 @@
-# :computer: Projeto Super Portfolio :computer:
+# 💻 Projeto Super Portfolio 💻
 
 
 
@@ -21,25 +21,17 @@
   
 </summary>
 
-### 1. 
+### 1 - Implemente a autenticação com simple JWT
 
-### 2. 
+### 2 - Crie um C.R.U.D para `Profile`
 
-### 3. 
+### 3 - Crie um C.R.U.D para `Project`
 
-### 4. 
+### 4 - Customize as ViewSets para `Profile`
 
-### 5. 
+### 5 - Crie um C.R.U.D inline para `Certificate` e `CertifyingInstitution`
 
-### 6. 
-
-### 7. 
-
-### 8.
-
-### 9. 
-
-### 10. 
+### 6 - Exibir uma página de perfil completa
   
 </details>
 <br />
@@ -52,8 +44,6 @@
 </summary>
 
 ## 100% :heavy_check_mark:
-
-![Project-Super-Portfolio]()
 
 </details>
 <br />
